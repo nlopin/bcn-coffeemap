@@ -1,0 +1,8 @@
+{
+  "name": "bcn-coffeemap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nlopin/bcn-coffeemap.git",
+  "author": "Nikolai Lopin <code@lopin.me>",
+  "license": "MIT"
+}
