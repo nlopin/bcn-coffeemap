@@ -6,13 +6,26 @@
   "author": "Nikolai Lopin <code@lopin.me>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
     "eslint-plugin-react": "^7.12.4",
+    "flow-bin": "^0.95.1",
+    "jest": "^24.5.0",
     "parcel-bundler": "^1.12.3"
   },
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "test:lint": "eslint --fix ./src"
+    "test": "yarn test:lint && yarn test:flow && yarn test:unit",
+    "test:lint": "eslint --fix ./src",
+    "test:flow": "yarn",
+    "test:unit": "jest --coverage ./src"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.4.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   }
 }
