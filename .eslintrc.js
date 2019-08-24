@@ -4,23 +4,33 @@ module.exports = {
         "es6": true,
         "jest": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
-    parser: "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
     },
     "plugins": [
+        "@typescript-eslint",
         "react",
     ],
     "rules": {
         "semi": ["error", "never"],
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "detect",
+        },
     }
-};
+}
