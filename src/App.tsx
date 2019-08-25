@@ -6,7 +6,7 @@ export const App: React.FC = () => {
     return (
         <>
             <h1>Barcelona Coffee Map</h1>
-            <Map center={[51.505, 20.33]} zoom={10} style={{height: "500px"}}>
+            <Map center={[41.3851, 2.1734]} zoom={13} style={{height: "500px"}}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
             </Map>
         </>
