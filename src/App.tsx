@@ -2,6 +2,7 @@ import * as React from "react"
 import {useEffect, useState} from "react"
 import {Map, Marker, TileLayer, Popup} from "react-leaflet"
 import {coffeePoints} from "./coffeepoints"
+import {coffeeIcon} from "./coffeeIcon"
 
 // TODO add map types
 const ratings = {
@@ -33,7 +34,7 @@ export const App: React.FC = () => {
                 />
                 {
                     coffeePoints.map(point =>
-                        <Marker key={point.name} position={point.coordinates}>
+                        <Marker icon={coffeeIcon} key={point.name} position={point.coordinates}>
                             <Popup>
                                 <h2>{point.name}</h2>
                                 <p>
