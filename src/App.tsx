@@ -37,9 +37,6 @@ export const App: React.FC = () => {
                         <Marker icon={coffeeIcon} key={point.name} position={point.coordinates}>
                             <Popup>
                                 <h2>{point.name}</h2>
-                                <p>
-                                    {ratings[point.rating]}
-                                </p>
                             </Popup>
                         </Marker>
                     )
