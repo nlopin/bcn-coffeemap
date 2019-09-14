@@ -1,6 +1,15 @@
 import * as React from "react"
 import {useEffect, useState} from "react"
-import {Map, TileLayer} from "react-leaflet"
+import {Map, Marker, TileLayer, Popup} from "react-leaflet"
+import {coffeePoints} from "./coffeepoints"
+import {coffeeIcon} from "./coffeeIcon"
+
+// TODO add map types
+const ratings = {
+    "-1": "👎",
+    "0": "🆗",
+    "1": "👍"
+}
 
 export const App: React.FC = () => {
     const [height, setHeight] = useState(window.innerHeight)
@@ -23,6 +32,15 @@ export const App: React.FC = () => {
                     minZoom={1}
                     maxZoom={19}
                 />
+                {
+                    coffeePoints.map(point =>
+                        <Marker icon={coffeeIcon} key={point.name} position={point.coordinates}>
+                            <Popup>
+                                <h2>{point.name}</h2>
+                            </Popup>
+                        </Marker>
+                    )
+                }
             </Map>
         </>
     )
