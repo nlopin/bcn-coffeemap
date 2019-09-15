@@ -11,8 +11,18 @@ import './styles.css'
 
 export const App: React.FC = () => {
     const height = useWindowHeight()
-    const [selected, setSelected] = useState<CoffeePoint | null>(null)
+    const [selected, setSelected] = useState<CoffeePoint>()
+    const [position, setPosition] = useState<[number, number]>()
     const cardHeight = selected ? 8.5 : 6
+
+    useEffect(() => {
+        // consider using watchPosition
+        navigator.geolocation.getCurrentPosition((pos) => {
+            setPosition([pos.coords.latitude, pos.coords.longitude])
+        }, () => {
+            setPosition(undefined)
+        })
+    }, [])
 
     return (
         <>
@@ -26,13 +36,14 @@ export const App: React.FC = () => {
                     minZoom={1}
                     maxZoom={19}
                 />
+                {position && <Marker position={position}/>}
                 {
                     coffeePoints.map(point =>
                         <Marker icon={coffeeIcon} key={point.name} position={point.coordinates} onClick={(): void => {
                             setSelected(point)
                         }}>
                             <Popup onClose={(): void => {
-                                setSelected(null)
+                                setSelected(undefined)
                             }}>
                                 <h2>{point.name}</h2>
                             </Popup>
