@@ -9,5 +9,6 @@ export const Card: React.FC<Props> = ({point}: Props) => {
     return <div className="card" key={point.name}>
         <h3>{point.name}</h3>
         <p>{point.address}</p>
+        <p>{point.tags.map(tag => <span key={tag}>{tag}</span>)}</p>
     </div>
 }
