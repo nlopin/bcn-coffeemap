@@ -1,0 +1,16 @@
+.list {
+    background-color: white;
+    position: relative;
+    z-index: 1000;
+}
+
+.list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card {
+    border: solid thin black;
+    padding: .5rem;
+    margin: .5rem 0;
+}
