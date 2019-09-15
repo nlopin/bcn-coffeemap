@@ -52,7 +52,7 @@ export const App: React.FC = () => {
                 }
             </Map>
             <div className="list">
-                {!selected && <List points={coffeePoints}/>}
+                {!selected && <List points={coffeePoints} closestTo={position}/>}
                 {selected && <Card point={selected}/>}
             </div>
         </>
